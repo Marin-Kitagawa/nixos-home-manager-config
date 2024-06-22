@@ -196,15 +196,27 @@
         ytv-best = "yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4";
         rmgitcache = "rm -r ~/.cache/git";
       };
-      initExtra = ''clear'';
+      initExtra = ''
+        clear
+        mcd () {
+          mkdir -p $1
+          cd $1
+        }
+      '';
     };
     git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
       userName = "Marin Kitagawa";
       userEmail = "49131888+Marin-Kitagawa@users.noreply.github.com";
-      signing.key = "6672A884D16B460F";
-      signing.signByDefault = true;
+#      signing.key = "6672A884D16B460F";
+#      signing.signByDefault = true;
+      extraConfig = {
+        # Sign all commits using ssh key
+        commit.gpgsign = true;
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/id_ed25519.pub";
+      };
     };
   };
   home.packages = [
