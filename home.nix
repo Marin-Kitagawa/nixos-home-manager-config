@@ -17,186 +17,161 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  programs.zsh = {
-    enable = true;
-    plugins = [
-      {
-        name = "enhancd";
-        file = "init.sh";
-        src = pkgs.fetchFromGitHub {
-          owner = "b4b4r07";
-          repo = "enhancd";
-        }
-      }
-      {
-        name = "calc.plugin.zsh";
-        file = "calc.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "arzzen";
-          repo = "calc.plugin.zsh";
-        }
-      }
-      {
-        name = "send.plugin.zsh";
-        file = "send.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "robertzk";
-          repo = "send.zsh";
-        }
-      }
-      {
-        name = "fzf-marks.plugin.zsh";
-        file = "fzf-marks.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "urbainvaes";
-          repo = "fzf-marks";
-        }
-      }
-      {
-        name = "functional.plugin.zsh";
-        file = "functional.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "Tarrasch";
-          repo = "zsh-functional";
-        }
-      }
-      {
-        name = "vi-mode";
-        file = "zsh-vi-mode.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "jeffreytse";
-          repo = "zsh-vi-mode";
-        }
-      }
-      {
-        name = "history-search-multi-word";
-        file = "history-search-multi-word.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "zdharma-continuum";
-          repo = "history-search-multi-word";
-        }
-      }
-      {
-        name = "f-sy-h";
-        file = "F-Sy-H.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "z-shell";
-          repo = "F-Sy-H";
-        }
-      }
-    ]
-    oh-my-zsh = {
+  programs = {
+    zsh = {
       enable = true;
       plugins = [
-        "cp"
-        "wd"
-        "git"
-        "ruby"
-        "emoji"
-        "emotty"
-        "python"
-        "extract"
-        "autojump"
-        "copyfile"
-        "dircycle"
-        "encode64"
-        "jsontools"
-        "git-extras"
-        "command-not-found"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
+        {
+          name = "enhancd";
+          file = "init.sh";
+          src = pkgs.fetchFromGitHub {
+            owner = "b4b4r07";
+            repo = "enhancd";
+          }
+        }
+        {
+          name = "calc.plugin.zsh";
+          file = "calc.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "arzzen";
+            repo = "calc.plugin.zsh";
+          }
+        }
+        {
+          name = "send.plugin.zsh";
+          file = "send.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "robertzk";
+            repo = "send.zsh";
+          }
+        }
+        {
+          name = "fzf-marks.plugin.zsh";
+          file = "fzf-marks.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "urbainvaes";
+            repo = "fzf-marks";
+          }
+        }
+        {
+          name = "functional.plugin.zsh";
+          file = "functional.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "Tarrasch";
+            repo = "zsh-functional";
+          }
+        }
+        {
+          name = "vi-mode";
+          file = "zsh-vi-mode.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "jeffreytse";
+            repo = "zsh-vi-mode";
+          }
+        }
+        {
+          name = "history-search-multi-word";
+          file = "history-search-multi-word.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "zdharma-continuum";
+            repo = "history-search-multi-word";
+          }
+        }
+        {
+          name = "f-sy-h";
+          file = "F-Sy-H.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "z-shell";
+            repo = "F-Sy-H";
+          }
+        }
       ]
-      theme = "random"
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "cp"
+          "wd"
+          "git"
+          "ruby"
+          "emoji"
+          "emotty"
+          "python"
+          "extract"
+          "autojump"
+          "copyfile"
+          "dircycle"
+          "encode64"
+          "jsontools"
+          "git-extras"
+          "command-not-found"
+          "zsh-autosuggestions"
+          "zsh-syntax-highlighting"
+        ]
+        theme = "random"
+      }
+      shellAliases = {
+        bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)"
+        cd.. = "cd .."
+        cls = "clear";
+        df = "df -h"
+        egrep = "egrep --color=auto"
+        fgrep = "fgrep --color=auto"
+        fix-gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify"
+        fix-gpg-retrieve = "gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+        free = "free -mt"
+        give-me-azerty-be = "sudo localectl set-x11-keymap be"
+        give-me-qwerty-us = "sudo localectl set-x11-keymap us"
+        gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify"
+        gpg-retrieve = "gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+        grep = "grep --color=auto"
+        hw = "hwinfo --short"
+        jctl = "journalctl -p 3 -xb"
+        l = "eza --icons --long --all --group-directories-first --git --header"
+        ll = "eza --icons --long --all --group-directories-first --git --header"
+        ls = "eza --icons --long --all --group-directories-first --git --header"
+        md = "mkdir -p"';
+        merge = "xrdb -merge ~/.Xresources"
+        microcode = "grep . /sys/devices/system/cpu/vulnerabilities/*"
+        nz = "nvim ~/.zshrc";
+        pdw = "pwd"
+        podimg = "podman images"
+        podnames = "podimg | awk 'match(\$1, /\w+$/) {print substr(\$1, RSTART, RLENGTH)}'"
+        podtags = "podimg | awk '{print \$2}'"
+        probe = "sudo -E hw-probe -all -upload"
+        psa = "ps auxf"
+        psgrep = "ps aux | grep -v grep | grep -i -e VSZ -e"
+        rg = "rg --sort path"
+        rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+        riplong = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+        rmrf = "rm -rf";
+        skel = "[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~"
+        sr = "sudo reboot"
+        ssn = "sudo shutdown now"
+        sysfailed = "systemctl list-units --failed"
+        sz = "source ~/.zshrc";
+        unhblock = "hblock -S none -D none"
+        update-fc = 'sudo fc-cache -fv'
+        update-grub = "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+        userlist = "cut -d: -f1 /etc/passwd"
+        wget = "wget -c"
+        yta-aac = "yt-dlp --extract-audio --audio-format aac "
+        yta-best = "yt-dlp --extract-audio --audio-format best "
+        yta-flac = "yt-dlp --extract-audio --audio-format flac "
+        yta-mp3 = "yt-dlp --extract-audio --audio-format mp3 "
+        ytv-best = "yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4"
+        rmgitcache = "rm -r ~/.cache/git"
+      }
+
+      initExtra = ''''
     }
-    shellAliases = {
-      bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)"
-      cd.. = "cd .."
-      cls = "clear";
-      df = "df -h"
-      egrep = "egrep --color=auto"
-      fgrep = "fgrep --color=auto"
-      fix-gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify"
-      fix-gpg-retrieve = "gpg2 --keyserver-options auto-key-retrieve --receive-keys"
-      free = "free -mt"
-      give-me-azerty-be = "sudo localectl set-x11-keymap be"
-      give-me-qwerty-us = "sudo localectl set-x11-keymap us"
-      gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify"
-      gpg-retrieve = "gpg2 --keyserver-options auto-key-retrieve --receive-keys"
-      grep = "grep --color=auto"
-      hw = "hwinfo --short"
-      jctl = "journalctl -p 3 -xb"
-      l = "eza --icons --long --all --group-directories-first --git --header"
-      ll = "eza --icons --long --all --group-directories-first --git --header"
-      ls = "eza --icons --long --all --group-directories-first --git --header"
-      md = "mkdir -p"';
-      merge = "xrdb -merge ~/.Xresources"
-      microcode = "grep . /sys/devices/system/cpu/vulnerabilities/*"
-      nz = "nvim ~/.zshrc";
-      pdw = "pwd"
-      podimg = "podman images"
-      podnames = "podimg | awk 'match(\$1, /\w+$/) {print substr(\$1, RSTART, RLENGTH)}'"
-      podtags = "podimg | awk '{print \$2}'"
-      probe = "sudo -E hw-probe -all -upload"
-      psa = "ps auxf"
-      psgrep = "ps aux | grep -v grep | grep -i -e VSZ -e"
-      rg = "rg --sort path"
-      rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-      riplong = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
-      rmrf = "rm -rf";
-      skel = "[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~"
-      sr = "sudo reboot"
-      ssn = "sudo shutdown now"
-      sysfailed = "systemctl list-units --failed"
-      sz = "source ~/.zshrc";
-      unhblock = "hblock -S none -D none"
-      update-fc = 'sudo fc-cache -fv'
-      update-grub = "sudo grub-mkconfig -o /boot/grub/grub.cfg"
-      userlist = "cut -d: -f1 /etc/passwd"
-      wget = "wget -c"
-      yta-aac = "yt-dlp --extract-audio --audio-format aac "
-      yta-best = "yt-dlp --extract-audio --audio-format best "
-      yta-flac = "yt-dlp --extract-audio --audio-format flac "
-      yta-mp3 = "yt-dlp --extract-audio --audio-format mp3 "
-      ytv-best = "yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4"
-      rmgitcache = "rm -r ~/.cache/git"
+    git = {
+      enable = true;
+      pacakge = pkgs.gitAndTools.gitFull;
+      userName = "Marin Kitagawa";
+      userEmail = "49131888+Marin-Kitagawa@users.noreply.github.com";
+      signing.key = "6672A884D16B460F";
+      signing.signByDefault = true;
     }
-
-    initExtra = ''
-      ghcu () {
-          git clone https://github.com/$1
-      }
-
-      ghcuc () {
-          git clone https://gihub.com/$(xclip -o)
-      }
-
-      cls
-
-      ex ()
-      {
-        if [ -f $1 ] ; then
-          case $1 in
-            *.tar.bz2)   tar xjf $1   ;;
-            *.tar.gz)    tar xzf $1   ;;
-            *.bz2)       bunzip2 $1   ;;
-            *.rar)       unrar x $1   ;;
-            *.gz)        gunzip $1    ;;
-            *.tar)       tar xf $1    ;;
-            *.tbz2)      tar xjf $1   ;;
-            *.tgz)       tar xzf $1   ;;
-            *.zip)       unzip $1     ;;
-            *.Z)         uncompress $1;;
-            *.7z)        7z x $1      ;;
-            *.deb)       ar x $1      ;;
-            *.tar.xz)    tar xf $1    ;;
-            *.tar.zst)   tar xf $1    ;;
-            *)           echo "'$1' cannot be extracted via ex()" ;;
-          esac
-        else
-          echo "'$1' is not a valid file"
-        fi
-      }
-  ''
   }
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
