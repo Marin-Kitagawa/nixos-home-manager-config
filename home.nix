@@ -40,6 +40,7 @@
         "zsh-autosuggestions"
         "zsh-syntax-highlighting"
       ]
+      theme = "random"
     }
     shellAliases = {
       bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)"
