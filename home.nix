@@ -159,6 +159,7 @@
         gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify";
         gpg-retrieve = "gpg2 --keyserver-options auto-key-retrieve --receive-keys";
         grep = "grep --color=auto";
+        gs = "git status";
         hw = "hwinfo --short";
         jctl = "journalctl -p 3 -xb";
         l = "eza --icons --long --all --group-directories-first --git --header";
