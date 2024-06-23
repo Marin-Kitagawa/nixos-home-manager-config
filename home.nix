@@ -247,6 +247,7 @@ in {
           navigate = true; 
           side-by-side = true;
           line-numbers = true;
+          true-color = "always";
         };
         merge = { conflictstyle = "diff3"; };
         diff = { colorMoved = "default"; };
