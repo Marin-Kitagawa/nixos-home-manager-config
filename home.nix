@@ -7,7 +7,10 @@ in {
 # # Adds the 'hello' command to your environment. It prints a friendly
 # # "Hello, world!" when run.
 # pkgs.hello
-    unstable.persepolis
+    unstable.btop
+    unstable.jdk22
+    unstable.nodePackages_latest.nodejs
+    unstable.yarn-berry
 # # It is sometimes useful to fine-tune packages, for example, by applying
 # # overrides. You can do that directly here, just don't forget the
 # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -91,16 +94,16 @@ in {
           sha256 = "Vc/E/ERenr9BkhM/P28ZjTfAsg3ayJ7accVrNFR1jnc=";
         };
       }
-      {
-        name = "vi-mode";
-        file = "zsh-vi-mode.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "jeffreytse";
-          repo = "zsh-vi-mode";
-          rev = "287efa19ec492b2f24bb93d1f4eaac3049743a63";
-          sha256 = "HMfC4s7KW4bO7H6RYzLnSARoFr1Ez89Z2VGONKMpGbw=";
-        };
-      }
+#      {
+#        name = "vi-mode";
+#        file = "zsh-vi-mode.plugin.zsh";
+#        src = pkgs.fetchFromGitHub {
+#          owner = "jeffreytse";
+#          repo = "zsh-vi-mode";
+#          rev = "287efa19ec492b2f24bb93d1f4eaac3049743a63";
+#          sha256 = "HMfC4s7KW4bO7H6RYzLnSARoFr1Ez89Z2VGONKMpGbw=";
+#        };
+#      }
       {
         name = "history-search-multi-word";
         file = "history-search-multi-word.plugin.zsh";
@@ -287,9 +290,9 @@ in {
 #  /etc/profiles/per-user/shenhe/etc/profile.d/hm-session-vars.sh
 #
   home.sessionVariables = {
-# EDITOR = "emacs";
+    EDITOR = "nvim";
   };
-
+  home.enableNixpkgsReleaseCheck = false;
 # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.fzf.enable = true;
