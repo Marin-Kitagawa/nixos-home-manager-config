@@ -3,14 +3,17 @@
 let 
   unstable = import <unstable> { config = {allowUnfree = true; }; };
 in {
-  home.packages = [
+  home.packages = with unstable; [
 # # Adds the 'hello' command to your environment. It prints a friendly
 # # "Hello, world!" when run.
 # pkgs.hello
-    unstable.btop
-    unstable.jdk22
-    unstable.nodePackages_latest.nodejs
-    unstable.yarn-berry
+    btop
+    gradle
+    jdk22
+    mono
+    nodePackages_latest.nodejs
+    onlyoffice-bin_latest
+    yarn-berry
 # # It is sometimes useful to fine-tune packages, for example, by applying
 # # overrides. You can do that directly here, just don't forget the
 # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -169,6 +172,7 @@ in {
         theme = "random";
       };
       shellAliases = {
+        btop = "btop --utf-force";
         bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)";
         cls = "clear";
         df = "df -h";
