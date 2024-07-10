@@ -1,49 +1,47 @@
 { config, pkgs, ... }:
 
-let 
+let
   unstable = import <unstable> { config = {allowUnfree = true; }; };
 in {
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
+  home.username = "irelia";
+  home.homeDirectory = "/home/irelia";
+
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  #
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
+
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
   home.packages = with unstable; [
-# # Adds the 'hello' command to your environment. It prints a friendly
-# # "Hello, world!" when run.
-# pkgs.hello
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
     btop
-    gradle
-    jdk22
-    mono
     nodePackages_latest.nodejs
     onlyoffice-bin_latest
     yarn-berry
-# # It is sometimes useful to fine-tune packages, for example, by applying
-# # overrides. You can do that directly here, just don't forget the
-# # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-# # fonts?
-# (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-# # You can also create simple shell scripts directly inside your
-# # configuration. For example, this adds a command 'my-hello' to your
-# # environment:
-# (pkgs.writeShellScriptBin "my-hello" ''
-#   echo "Hello, ${config.home.username}!"
-# '')
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
   ];
-# Home Manager needs a bit of information about you and the paths it should
-# manage.
-  home.username = "shenhe";
-  home.homeDirectory = "/home/shenhe";
 
-# This value determines the Home Manager release that your configuration is
-# compatible with. This helps avoid breakage when a new Home Manager release
-# introduces backwards incompatible changes.
-#
-# You should not change this value, even if you update Home Manager. If you do
-# want to update the value, then make sure to first check the Home Manager
-# release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
-
-# The home.packages option allows you to install Nix packages into your
-# environment.
-  programs = {
+    programs = {
     zsh = {
       enable = true;
       plugins = [
@@ -145,6 +143,16 @@ in {
           repo = "zsh-syntax-highlighting";
           rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
           sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
+        };
+      }
+      {
+        name = "zsh-shift-select";
+        file = "zsh-shift-select.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "jirutka";
+          repo = "zsh-shift-select";
+          rev = "da460999b7d31aef0f0a82a3e749d70edf6f2ef9";
+          sha256 = "ekA8acUgNT/t2SjSBGJs2Oko5EB7MvVUccC6uuTI/vc=";
         };
       }
       ];
@@ -250,8 +258,8 @@ in {
         #git-delta configuration
         core = { pager = "delta"; };
         interactive = { diffFilter = "delta --color-only"; };
-        delta = { 
-          navigate = true; 
+        delta = {
+          navigate = true;
           side-by-side = true;
           line-numbers = true;
           true-color = "always";
@@ -262,42 +270,45 @@ in {
     };
   };
 
-# Home Manager is pretty good at managing dotfiles. The primary way to manage
-# plain files is through 'home.file'.
-  home.file = {
-# # Building this configuration will create a copy of 'dotfiles/screenrc' in
-# # the Nix store. Activating the configuration will then make '~/.screenrc' a
-# # symlink to the Nix store copy.
-# ".screenrc".source = dotfiles/screenrc;
 
-# # You can also set the file content immediately.
-# ".gradle/gradle.properties".text = ''
-#   org.gradle.console=verbose
-#   org.gradle.daemon.idletimeout=3600000
-# '';
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {
+    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # symlink to the Nix store copy.
+    # ".screenrc".source = dotfiles/screenrc;
+
+    # # You can also set the file content immediately.
+    # ".gradle/gradle.properties".text = ''
+    #   org.gradle.console=verbose
+    #   org.gradle.daemon.idletimeout=3600000
+    # '';
   };
 
-# Home Manager can also manage your environment variables through
-# 'home.sessionVariables'. These will be explicitly sourced when using a
-# shell provided by Home Manager. If you don't want to manage your shell
-# through Home Manager then you have to manually source 'hm-session-vars.sh'
-# located at either
-#
-#  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-#
-# or
-#
-#  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-#
-# or
-#
-#  /etc/profiles/per-user/shenhe/etc/profile.d/hm-session-vars.sh
-#
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. These will be explicitly sourced when using a
+  # shell provided by Home Manager. If you don't want to manage your shell
+  # through Home Manager then you have to manually source 'hm-session-vars.sh'
+  # located at either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/irelia/etc/profile.d/hm-session-vars.sh
+  #
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
   home.enableNixpkgsReleaseCheck = false;
-# Let Home Manager install and manage itself.
+
+  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
