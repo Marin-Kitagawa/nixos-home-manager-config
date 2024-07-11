@@ -13,7 +13,7 @@
         commit.gpgsign = true;
         gpg.format = "ssh";
         user.signingkey = "./id_ed25519.pub";
-        allowedSignersFile = "./allowed_signers";
+        gpg.ssh.allowedSignersFile = "./allowed_signers";
         credential.helper = "libsecret";
 
         #git-delta configuration
