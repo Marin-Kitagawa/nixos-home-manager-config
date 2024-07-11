@@ -85,6 +85,9 @@
       "window.dialogStyle" = "custom";
       "window.menuBarVisibility" = "hidden";
       "window.titleBarStyle" = "custom";
+
+      # Extension configuration
+      "sqltools.useNodeRuntime" = true;
     };
   };
 }
