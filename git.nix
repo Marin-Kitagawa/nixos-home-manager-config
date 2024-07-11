@@ -6,13 +6,14 @@
       userName = "Marin Kitagawa";
       userEmail = "49131888+Marin-Kitagawa@users.noreply.github.com";
 
-      signing.key = "6672A884D16B460F";
-      signing.signByDefault = true;
+#      signing.key = "6672A884D16B460F";
+#      signing.signByDefault = true;
       extraConfig = {
         # Sign all commits using ssh key
         commit.gpgsign = true;
-#        gpg.format = "ssh";
-#        user.signingkey = "~/.ssh/id_ed25519.pub";
+        gpg.format = "ssh";
+        user.signingkey = "./id_ed25519.pub";
+        allowedSignersFile = "./allowed_signers"
         credential.helper = "libsecret";
 
         #git-delta configuration
