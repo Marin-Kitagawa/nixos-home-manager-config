@@ -80,6 +80,11 @@
       "git-graph.repository.sign.tags" = true;
       "git-graph.repository.commits.showSignatureStatus" = true;
 
+      # Window
+      "window.customTitleBarVisibility" = "windowed";
+      "window.dialogStyle" = "custom";
+      "window.menuBarVisibility" = "hidden";
+      "window.titleBarStyle" = "custom";
     };
   };
 }
