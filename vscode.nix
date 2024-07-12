@@ -3,11 +3,14 @@
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
+    enableExtensionUpdateCheck = true;
     mutableExtensionsDir = true;
     extensions = (with pkgs.vscode-extensions; [
+        astro-build.astro-vscode
         batisteo.vscode-django
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
+        mechatroner.rainbow-csv
         ms-azuretools.vscode-docker
         ms-python.debugpy
         ms-python.python
@@ -15,6 +18,7 @@
         ms-toolsai.jupyter
         pkief.material-icon-theme
         svelte.svelte-vscode
+        unifiedjs.vscode-mdx
         vscodevim.vim
         wakatime.vscode-wakatime
         zhuangtongfa.material-theme
@@ -88,6 +92,11 @@
 
       # Extension configuration
       "sqltools.useNodeRuntime" = true;
+
+      # Language settings
+      "[javascript]" = {
+        "editor.defaultFormatter" = "vscode.typescript-language-features";
+      };
     };
   };
 }
