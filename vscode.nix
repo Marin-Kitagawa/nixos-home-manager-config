@@ -10,6 +10,7 @@
         batisteo.vscode-django
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
+        graphql.vscode-graphql
         mechatroner.rainbow-csv
         ms-azuretools.vscode-docker
         ms-python.debugpy
@@ -97,6 +98,11 @@
       "[javascript]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
+
+      "[typescriptreact]" = {
+        "editor.defaultFormatter" = "vscode.typescript-language-features";
+      };
+
     };
   };
 }
