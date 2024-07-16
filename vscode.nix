@@ -11,6 +11,7 @@
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
         graphql.vscode-graphql
+        graphql.vscode-graphql-syntax
         mechatroner.rainbow-csv
         ms-azuretools.vscode-docker
         ms-python.debugpy
@@ -98,6 +99,7 @@
       "[javascript]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
+      "javascript.updateImportsOnFileMove.enabled": "always";
 
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
