@@ -99,7 +99,7 @@
       "[javascript]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
-      "javascript.updateImportsOnFileMove.enabled": "always";
+      "javascript.updateImportsOnFileMove.enabled" = "always";
 
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
