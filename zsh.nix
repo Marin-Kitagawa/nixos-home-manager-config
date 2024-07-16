@@ -7,7 +7,6 @@
         enable = true;
         plugins = [
           "Marin-Kitagawa/enhancd"
-          "arzzen/calc.plugin.zsh"
           "robertzk/send.zsh"
           "urbainvaes/fzf-marks"
           "Tarrasch/zsh-functional"
@@ -31,16 +30,16 @@
 #          sha256 = "i2/H59I59eE1v2KoNJGt9aQUuM1YKU+XPU/QMtRNRCI=";
 #        };
 #      }
-#      {
-#        name = "calc.plugin.zsh";
-#        file = "calc.plugin.zsh";
-#        src = pkgs.fetchFromGitHub {
-#          owner = "arzzen";
-#          repo = "calc.plugin.zsh";
-#          rev = "5b4c85977b693c15eb052cde6b5cef0d6610f567";
-#          sha256 = "N4FBN7iyyiEyZX/opj63D5acA1Oh0YpFXdz83oIOWPE=";
-#        };
-#      }
+      {
+        name = "calc.plugin.zsh";
+        file = "calc.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "arzzen";
+          repo = "calc.plugin.zsh";
+          rev = "5b4c85977b693c15eb052cde6b5cef0d6610f567";
+          sha256 = "N4FBN7iyyiEyZX/opj63D5acA1Oh0YpFXdz83oIOWPE=";
+        };
+      }
 #      {
 #        name = "send.plugin.zsh";
 #        file = "send.plugin.zsh";
@@ -150,8 +149,6 @@
           "jsontools"
           "git-extras"
           "command-not-found"
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
         ];
         theme = "random";
       };
