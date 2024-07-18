@@ -24,6 +24,7 @@
         vscodevim.vim
         wakatime.vscode-wakatime
         zhuangtongfa.material-theme
+        bbenoist.nix
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "vscode-thunder-client";
