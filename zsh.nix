@@ -14,6 +14,7 @@
           "z-shell/F-Sy-H"
           "zsh-users/zsh-autosuggestions"
           "zsh-users/zsh-syntax-highlighting"
+          "chisui/zsh-nix-shell"
 #          "jirutka/zsh-shift-select"
         ];
         useFriendlyNames = true;
