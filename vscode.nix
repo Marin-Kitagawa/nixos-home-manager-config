@@ -8,6 +8,8 @@
     extensions = (with pkgs.vscode-extensions; [
         astro-build.astro-vscode
         batisteo.vscode-django
+        bbenoist.nix
+        christian-kohler.npm-intellisense
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
         graphql.vscode-graphql
@@ -24,7 +26,6 @@
         vscodevim.vim
         wakatime.vscode-wakatime
         zhuangtongfa.material-theme
-        bbenoist.nix
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "vscode-thunder-client";
