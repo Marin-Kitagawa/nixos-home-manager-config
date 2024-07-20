@@ -6,6 +6,7 @@ in {
   imports = [
     ./direnv.nix
     ./git.nix
+    ./kitty.nix
     ./vscode.nix
     ./wezterm.nix
     ./zsh.nix

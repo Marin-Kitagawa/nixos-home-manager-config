@@ -157,6 +157,7 @@
         btop = "btop --utf-force";
         bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)";
         cls = "clear";
+        cp = "xcp";
         df = "df -h";
         egrep = "egrep --color=auto";
         fgrep = "fgrep --color=auto";
