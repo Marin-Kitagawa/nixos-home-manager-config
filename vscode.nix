@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
-{
+let
+  unstable = import <unstable> { config = { allowUnfree = true; }; };
+in {
   programs.vscode = {
     enable = true;
+    package = unstable.vscodium;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = true;
     mutableExtensionsDir = true;
     extensions = (with pkgs.vscode-extensions; [
-        astro-build.astro-vscode
         batisteo.vscode-django
         bbenoist.nix
         christian-kohler.npm-intellisense
