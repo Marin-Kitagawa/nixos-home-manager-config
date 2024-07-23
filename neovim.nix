@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 let
-  sources = ./nix/sources.nix;
+  sources = import ./nix/sources.nix;
 in {
-   xdg.configFile = {
-      nvim = {
-        onChange = "nvim --headless -c 'if exists(\":LuaCacheClear\") | :LuaCacheClear' +quitall";
-        source = sources.astronvim;
-      };
-   };
+  xdg.configFile = {
+    nvim = {
+      onChange = "nvim --headless -c 'if exists(\":LuaCacheClear\") | :LuaCacheClear' +quitall";
+      source = sources.AstroNvim;
+    };
+  };
 }
