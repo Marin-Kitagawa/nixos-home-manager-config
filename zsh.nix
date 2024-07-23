@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
-
-{
+let
+  sources = import ./nix/sources.nix;
+in {
   programs.zsh = {
       enable = true;
       antidote = {
@@ -31,16 +32,11 @@
 #          sha256 = "i2/H59I59eE1v2KoNJGt9aQUuM1YKU+XPU/QMtRNRCI=";
 #        };
 #      }
-      {
-        name = "calc.plugin.zsh";
-        file = "calc.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "arzzen";
-          repo = "calc.plugin.zsh";
-          rev = "5b4c85977b693c15eb052cde6b5cef0d6610f567";
-          sha256 = "N4FBN7iyyiEyZX/opj63D5acA1Oh0YpFXdz83oIOWPE=";
-        };
-      }
+       {
+         name = "calc.plugin.zsh";
+         file = "calc.plugin.zsh";
+         src = sources.zshCalcPlugin.outPath;
+       }
 #      {
 #        name = "send.plugin.zsh";
 #        file = "send.plugin.zsh";
@@ -121,16 +117,11 @@
 #          sha256 = "4rW2N+ankAH4sA6Sa5mr9IKsdAg7WTgrmyqJ2V1vygQ=";
 #        };
 #      }
-      {
-        name = "zsh-shift-select";
-        file = "zsh-shift-select.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "jirutka";
-          repo = "zsh-shift-select";
-          rev = "da460999b7d31aef0f0a82a3e749d70edf6f2ef9";
-          sha256 = "ekA8acUgNT/t2SjSBGJs2Oko5EB7MvVUccC6uuTI/vc=";
-        };
-      }
+       {
+         name = "zsh-shift-select";
+         file = "zsh-shift-select.plugin.zsh";
+         src = sources.zshShiftSelect.outPath;
+       }
       ];
       oh-my-zsh = {
         enable = true;
