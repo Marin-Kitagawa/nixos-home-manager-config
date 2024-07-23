@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
-let
-  unstable = import <unstable> { config = { allowUnfree = true; }; };
-in {
+{
   programs.vscode = {
     enable = true;
-    package = unstable.vscodium;
+    package = pkgs.vscodium;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = true;
     mutableExtensionsDir = true;
