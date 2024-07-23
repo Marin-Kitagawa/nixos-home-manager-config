@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import <unstable> { config = {allowUnfree = true; }; };
-in {
+{
   imports = [
     ./direnv.nix
     ./git.nix
