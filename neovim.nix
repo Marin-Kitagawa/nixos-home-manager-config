@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  sources = ./nix/sources.nix
+  sources = ./nix/sources.nix;
 in {
    xdg.configFile = {
       nvim = {
