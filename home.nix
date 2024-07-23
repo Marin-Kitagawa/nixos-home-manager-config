@@ -5,6 +5,7 @@
     ./direnv.nix
     ./git.nix
     ./kitty.nix
+    ./neovim.nix
     ./vscode.nix
     ./wezterm.nix
     ./zsh.nix
