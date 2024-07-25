@@ -20,6 +20,7 @@
         ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
+        myriad-dreamin.tinymist
         pkief.material-icon-theme
         svelte.svelte-vscode
         unifiedjs.vscode-mdx
