@@ -199,7 +199,6 @@ in {
         rmgitcache = "rm -r ~/.cache/git";
       };
       initExtra = ''
-        clear
         mcd () {
           mkdir -p $1
             cd $1
@@ -237,6 +236,8 @@ in {
             echo "'$1' is not a valid file"
           fi
         }
+        . "$HOME/.asdf/asdf.sh"
+        clear
       '';
     };
 }
