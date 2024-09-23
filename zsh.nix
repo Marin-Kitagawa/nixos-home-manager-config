@@ -140,7 +140,6 @@ in {
           "encode64"
           "jsontools"
           "git-extras"
-          "command-not-found"
         ];
         theme = "random";
       };
