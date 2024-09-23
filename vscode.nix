@@ -2,30 +2,61 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = true;
     mutableExtensionsDir = true;
     extensions = (with pkgs.vscode-extensions; [
+        aaron-bond.better-comments
+        apollographql.vscode-apollo
+        asciidoctor.asciidoctor-vscode
         batisteo.vscode-django
         bbenoist.nix
+        bierner.markdown-checkbox
         christian-kohler.npm-intellisense
+        davidanson.vscode-markdownlint
         dbaeumer.vscode-eslint
+        dotjoshjohnson.xml
+        equinusocio.vsc-material-theme
         esbenp.prettier-vscode
+        formulahendry.auto-close-tag
+        formulahendry.auto-rename-tag
+        foxundermoon.shell-format
+        golang.go
         graphql.vscode-graphql
         graphql.vscode-graphql-syntax
+        james-yu.latex-workshop
         mechatroner.rainbow-csv
+        mikestead.dotenv
+        mongodb.mongodb-vscode
         ms-azuretools.vscode-docker
         ms-python.debugpy
         ms-python.python
         ms-python.vscode-pylance
         ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode-remote.remote-containers
         myriad-dreamin.tinymist
+        oderwat.indent-rainbow
         pkief.material-icon-theme
+        pkief.material-product-icons
+        redhat.vscode-yaml
+        ritwickdey.liveserver
+        rust-lang.rust-analyzer
+        shd101wyy.markdown-preview-enhanced
         svelte.svelte-vscode
+        tamasfe.even-better-toml
         unifiedjs.vscode-mdx
+        usernamehw.errorlens
+        vadimcn.vscode-lldb
+        visualstudioexptteam.vscodeintellicode
+        visualstudioexptteam.intellicode-api-usage-examples
         vscodevim.vim
         wakatime.vscode-wakatime
+        yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -33,12 +64,6 @@
           publisher = "rangav";
           version = "2.24.12";
           sha256 = "96dd3a83edd520debb3959d6fbf98f982c46250abf307a0a23d29a830e2aa789";
-        }
-        {
-          name = "mongodb-vscode";
-          publisher = "mongodb";
-          version = "1.6.0";
-          sha256 = "5d9ca4624230bb8af1f60b98a4838f53838f5298b8dfbbbdf0a3fe61f6d2301b";
         }
         {
           name = "sqltools";
@@ -57,6 +82,42 @@
           publisher = "mtxr";
           version = "0.5.1";
           sha256 = "c0581beb00d280f6cfb4454a6c771479446a6d502a0ec10484551c06142d985f";
+        }
+        {
+          name = "vscode-data-preview";
+          publisher = "randomfractalsinc";
+          version = "2.3.0";
+          sha256 = "sha256-hKnAKdt0splUFyN8n9IdTD8NKjahIMMrLkkwg55zWv0=";
+        }
+        {
+          name = "es7-react-js-snippets";
+          publisher = "dsznajder";
+          version = "4.4.3";
+          sha256 = "sha256-QF950JhvVIathAygva3wwUOzBLjBm7HE3Sgcp7f20Pc=";
+        }
+        {
+          name = "vscode-typescript-next";
+          publisher = "ms-vscode";
+          version = "5.7.20240904";
+          sha256 = "aec57c622887ca5d5e229833a3b69798180e24c6d844f3cca6a0f50cb6c9a880";
+        }
+        {
+          name = "vscode-json-validate";
+          publisher = "rioj7";
+          version = "1.5.0";
+          sha256 = "1478d7bfc68937d91928505e538c4ce2f0db8e3578d8a4db693964de1e37cfd2";
+        }
+        {
+          name = "vsc-python-indent";
+          publisher = "kevinrose";
+          version = "1.18.0";
+          sha256 = "86238c707896f0a1666aeed66258b4a45b3304191be87a6166ccfe413e6f1efd";
+        }
+        {
+          name = "svelte-bundle";
+          publisher = "1yib";
+          version = "1.0.0";
+          sha256 = "9a00c235a15d5818218b6f20dda5beea291396c219dcfefc73d1a399ee8607cf";
         }
       ]
     );
@@ -107,6 +168,8 @@
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
+
+      "docwriter.hotkey.windows": "Alt + .";
 
     };
   };
