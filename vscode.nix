@@ -169,7 +169,7 @@
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
 
-      "docwriter.hotkey.windows": "Alt + .";
+      "docwriter.hotkey.windows" = "Alt + .";
 
     };
   };
