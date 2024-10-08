@@ -122,7 +122,7 @@
       ]
     );
     userSettings = {
-      "files.autoSave" = "on";
+      "files.autoSave" = "afterDelay";
 
       # Network
       "http.proxySupport" = "off";
