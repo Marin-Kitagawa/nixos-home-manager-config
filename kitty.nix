@@ -28,7 +28,7 @@
       shell_integration = "disabled";
       font_size = "11.0";
       background_opacity = "0.6";
-      window_padding_width = "20";
+      window_padding_width = "0";
       confirm_os_window_close = "0";
       foreground = "#a6accd";
       background = "#0d0f16";
