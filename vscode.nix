@@ -170,6 +170,7 @@
       };
 
       "docwriter.hotkey.windows" = "Alt + .";
+      "workbench.colorCustomizations" = {};
 
     };
   };
