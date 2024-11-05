@@ -43,6 +43,7 @@
         oderwat.indent-rainbow
         pkief.material-icon-theme
         pkief.material-product-icons
+        quicktype.quicktype
         redhat.vscode-yaml
         ritwickdey.liveserver
         rust-lang.rust-analyzer

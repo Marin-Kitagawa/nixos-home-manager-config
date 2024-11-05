@@ -6,6 +6,7 @@
     ./git.nix
     ./kitty.nix
     ./neovim.nix
+    ./plasma.nix
     ./vscode.nix
     ./zsh.nix
   ];

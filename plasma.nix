@@ -7,9 +7,11 @@
     fonts = {
       fixedWidth = {
         family = "FiraCode Nerd Font";
+        pointSize = 11;
       };
       general = {
         family = "Work Sans";
+        pointSize = 11;
       };
     };
 
@@ -42,6 +44,8 @@
           enable = true;
         };
       };
+    };
+    workspace = {
     };
   };
 }
