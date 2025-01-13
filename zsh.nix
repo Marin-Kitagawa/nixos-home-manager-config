@@ -235,6 +235,16 @@ in {
             echo "'$1' is not a valid file"
           fi
         }
+        radc () {
+          for i in $(docker ps -q); do
+            docker rm $i --force
+          done
+        }
+        radi () {
+          for i in $(docker images -q); do
+            docker rmi $i --force
+          done
+        }
         . "$HOME/.asdf/asdf.sh"
         clear
       '';
