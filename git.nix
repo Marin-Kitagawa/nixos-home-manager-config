@@ -6,7 +6,7 @@
       userName = "Marin Kitagawa";
       userEmail = "49131888+Marin-Kitagawa@users.noreply.github.com";
 
-      signing.key = "C203D2C76A8BE94E12558A9D355FDF455E703715";
+      signing.key = "51C4DFF5C9E259FE";
 #      signing.signByDefault = true;
       extraConfig = {
         # Sign all commits using ssh key
