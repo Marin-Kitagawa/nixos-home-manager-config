@@ -47,6 +47,7 @@
         redhat.vscode-yaml
         ritwickdey.liveserver
         rust-lang.rust-analyzer
+        samuelcolvin.jinjahtml
         shd101wyy.markdown-preview-enhanced
         svelte.svelte-vscode
         tamasfe.even-better-toml
@@ -63,8 +64,8 @@
         {
           name = "vscode-thunder-client";
           publisher = "rangav";
-          version = "2.24.12";
-          sha256 = "96dd3a83edd520debb3959d6fbf98f982c46250abf307a0a23d29a830e2aa789";
+          version = "2.32.10";
+          sha256 = "cf3af3b71c3a97bd602cbd38eae567186b8dd96364ad19c0f9f79f53e5ee7118";
         }
         {
           name = "sqltools";
@@ -172,7 +173,12 @@
 
       "docwriter.hotkey.windows" = "Alt + .";
       "workbench.colorCustomizations" = {};
-
+      "[python]" = {
+        "diffEditor.ignoreTrimWhitespace"= true;
+      };
+      "vim.handleKeys" = {
+          "<C-p>" = false;
+      };
     };
   };
 }
