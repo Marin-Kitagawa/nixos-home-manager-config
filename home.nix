@@ -3,7 +3,6 @@
 {
   imports = [
     ./direnv.nix
-    ./ghostty.nix
     ./git.nix
     ./kitty.nix
     ./neovim.nix
