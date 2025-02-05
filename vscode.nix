@@ -178,6 +178,7 @@
       };
       "vim.handleKeys" = {
           "<C-p>" = false;
+          "<C-w>" = false;
       };
     };
   };
