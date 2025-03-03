@@ -17,7 +17,6 @@
         davidanson.vscode-markdownlint
         dbaeumer.vscode-eslint
         dotjoshjohnson.xml
-        equinusocio.vsc-material-theme
         esbenp.prettier-vscode
         formulahendry.auto-close-tag
         formulahendry.auto-rename-tag
