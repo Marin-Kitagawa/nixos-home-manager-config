@@ -180,6 +180,10 @@
           "<C-p>" = false;
           "<C-w>" = false;
       };
+      "[json]" = {
+        "editor.defaultFormatter" = "vscode.json-language-features";
+      };
+      "diffEditor.maxComputationTime" = 0;
     };
   };
 }
