@@ -147,6 +147,7 @@ in {
         btop = "btop --utf-force";
         bupskel = "cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)";
         cls = "clear";
+        clean-os = "nh clean all";
         cp = "xcp";
         df = "df -h";
         egrep = "egrep --color=auto";
@@ -168,6 +169,7 @@ in {
         md = "mkdir -p";
         merge = "xrdb -merge ~/.Xresources";
         microcode = "grep . /sys/devices/system/cpu/vulnerabilities/*";
+        nix-store-repair = "sudo nix-store --repair --verify --check-contents";
         nz = "nvim ~/.zshrc";
         pdw = "pwd";
         podimg = "podman images";
@@ -188,6 +190,8 @@ in {
         unhblock = "hblock -S none -D none";
         update-fc = "sudo fc-cache -fv";
         update-grub = "sudo grub-mkconfig -o /boot/grub/grub.cfg";
+        updatehm = "nix flake update; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --flake . --impure";
+        updatenix = "sudo nix flake update; sudo nixos-rebuild switch --upgrade --flake . --impure";
         userlist = "cut -d: -f1 /etc/passwd";
         wget = "wget -c";
         yta-aac = "yt-dlp --extract-audio --audio-format aac ";
