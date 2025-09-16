@@ -150,6 +150,10 @@ in {
         clean-os = "nh clean all";
         cp = "xcp";
         df = "df -h";
+        dcd = "docker compose down";
+        dcdsd = "docker compose down; sudo shutdown now";
+        dcu = "docker compose up";
+        dcr = "docker compose restart";
         egrep = "egrep --color=auto";
         fgrep = "fgrep --color=auto";
         fix-gpg-check = "gpg2 --keyserver-options auto-key-retrieve --verify";
@@ -201,7 +205,7 @@ in {
         ytv-best = "yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4";
         rmgitcache = "rm -r ~/.cache/git";
       };
-      initExtra = ''
+      initContent = ''
         mcd () {
           mkdir -p $1
             cd $1

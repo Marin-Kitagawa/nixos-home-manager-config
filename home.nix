@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -6,6 +11,7 @@
     ./git.nix
     ./kitty.nix
     ./neovim.nix
+    #./nixvim.nix
     ./vscode.nix
     ./zsh.nix
   ];
@@ -26,6 +32,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    #  inputs.nixvim.packages.${pkgs.system}.default
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

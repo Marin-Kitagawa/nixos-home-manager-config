@@ -6,7 +6,9 @@
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = true;
     mutableExtensionsDir = true;
-    extensions = (with pkgs.vscode-extensions; [
+    extensions = (
+      with pkgs.vscode-extensions;
+      [
         aaron-bond.better-comments
         apollographql.vscode-apollo
         asciidoctor.asciidoctor-vscode
@@ -16,6 +18,7 @@
         christian-kohler.npm-intellisense
         davidanson.vscode-markdownlint
         dbaeumer.vscode-eslint
+        donjayamanne.githistory
         dotjoshjohnson.xml
         esbenp.prettier-vscode
         formulahendry.auto-close-tag
@@ -26,6 +29,7 @@
         graphql.vscode-graphql-syntax
         james-yu.latex-workshop
         mechatroner.rainbow-csv
+        mhutchie.git-graph
         mikestead.dotenv
         mongodb.mongodb-vscode
         ms-azuretools.vscode-docker
@@ -59,7 +63,9 @@
         wakatime.vscode-wakatime
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        zxh404.vscode-proto3
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "vscode-thunder-client";
           publisher = "rangav";
@@ -171,18 +177,21 @@
       };
 
       "docwriter.hotkey.windows" = "Alt + .";
-      "workbench.colorCustomizations" = {};
+      "workbench.colorCustomizations" = { };
       "[python]" = {
-        "diffEditor.ignoreTrimWhitespace"= true;
+        "diffEditor.ignoreTrimWhitespace" = true;
       };
       "vim.handleKeys" = {
-          "<C-p>" = false;
-          "<C-w>" = false;
+        "<C-p>" = false;
+        "<C-w>" = false;
       };
       "[json]" = {
         "editor.defaultFormatter" = "vscode.json-language-features";
       };
       "diffEditor.maxComputationTime" = 0;
+      "files.associations" = {
+        "*.jinja" = "jinja-html";
+      };
     };
   };
 }
