@@ -11,6 +11,7 @@
     ./git.nix
     ./kitty.nix
     ./neovim.nix
+    ./ghostty.nix
     #./nixvim.nix
     ./vscode.nix
     ./zsh.nix
