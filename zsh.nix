@@ -195,7 +195,7 @@ in {
         update-fc = "sudo fc-cache -fv";
         update-grub = "sudo grub-mkconfig -o /boot/grub/grub.cfg";
         updatehm = "nix flake update; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --flake . --impure";
-        updatenix = "sudo nix flake update; sudo nixos-rebuild switch --upgrade --flake . --impure";
+        updatenix = "sudo nix flake update; sudo nixos-rebuild switch --upgrade --flake . --impure --show-trace -L -vvv 2>$(date).log";
         userlist = "cut -d: -f1 /etc/passwd";
         wget = "wget -c";
         yta-aac = "yt-dlp --extract-audio --audio-format aac ";
