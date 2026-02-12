@@ -11,6 +11,7 @@
         "ctrl+shift+left=unbind"
         "ctrl+shift+right=unbind"
       ];
+      maximize = true;
     };
   };
 }
