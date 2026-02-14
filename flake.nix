@@ -43,7 +43,7 @@
       nixpkgs,
       nixvim,
       plasma-manager,
-      zen-browser,
+      #zen-browser,
     }@inputs:
     let
       username = "irelia";
