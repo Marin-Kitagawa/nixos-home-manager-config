@@ -55,7 +55,7 @@
         modules = [
           plasma-manager.homeModules.plasma-manager
           #nixvim.homeModules.nixvim
-          zen-browser.homeModules.twilight-official
+          #zen-browser.homeModules.twilight-official
           ./home.nix
         ];
         extraSpecialArgs = {
