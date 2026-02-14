@@ -3,12 +3,14 @@
   programs.git = {
       enable = true;
       package = pkgs.gitFull;
-      userName = "Marin Kitagawa";
-      userEmail = "49131888+Marin-Kitagawa@users.noreply.github.com";
 
       signing.key = "A4AB76840BB2901A";
 #      signing.signByDefault = true;
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Marin Kitagawa";
+          email = "49131888+Marin-Kitagawa@users.noreply.github.com";
+        };
         # Sign all commits using ssh key
         commit.gpgsign = true;
 #        gpg.format = "ssh";

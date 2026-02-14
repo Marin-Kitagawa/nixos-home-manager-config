@@ -7,6 +7,7 @@
 
 {
   imports = [
+    #./atuin.nix
     ./direnv.nix
     ./git.nix
     ./kitty.nix
