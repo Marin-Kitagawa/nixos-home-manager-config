@@ -15,13 +15,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
-      nixpkgs,
       home-manager,
+      nixpkgs,
+      nixvim,
       plasma-manager,
     }@inputs:
     let
@@ -32,8 +37,8 @@
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { inherit system; };
         modules = [
-          plasma-manager.homeManagerModules.plasma-manager
-          #nixvim.homeManagerModules.nixvim
+          plasma-manager.homeModules.plasma-manager
+          nixvim.homeModules.nixvim
           ./home.nix
         ];
         extraSpecialArgs = {
