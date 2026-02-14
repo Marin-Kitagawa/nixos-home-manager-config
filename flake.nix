@@ -19,6 +19,21 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # zen-browser = {
+    #   url = "github:Marin-Kitagawa/zen-browser-flake";
+    #   inputs = {
+    #     # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
+    #     nixpkgs.follows = "nixpkgs-unstable";
+    #     home-manager.follows = "home-manager";
+    #   };
+    # };
+    #
+    # firefox-addons = {
+    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
   };
 
   outputs =
@@ -28,6 +43,7 @@
       nixpkgs,
       nixvim,
       plasma-manager,
+      zen-browser,
     }@inputs:
     let
       username = "irelia";
@@ -38,7 +54,8 @@
         pkgs = import nixpkgs { inherit system; };
         modules = [
           plasma-manager.homeModules.plasma-manager
-          nixvim.homeModules.nixvim
+          #nixvim.homeModules.nixvim
+          zen-browser.homeModules.twilight-official
           ./home.nix
         ];
         extraSpecialArgs = {
