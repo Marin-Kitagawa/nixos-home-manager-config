@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "Marin-Kitagawa",
         "repo": "AstroNvim",
-        "rev": "00885839152c6a58dd8b4a407fd77f31bbe1b234",
-        "sha256": "0w959fg790xn9kzqvqzpbp44v1fabd9cgw46jdxczm9spb9v3hzd",
+        "rev": "52ca46475cf930b4cc08161b951b5ec2aae73dcd",
+        "sha256": "1x3ndznwxmr253bvglh9jr86wjh1g4zfpbzh698h0c0fqkwshgcb",
         "type": "tarball",
-        "url": "https://github.com/Marin-Kitagawa/AstroNvim/archive/00885839152c6a58dd8b4a407fd77f31bbe1b234.tar.gz",
+        "url": "https://github.com/Marin-Kitagawa/AstroNvim/archive/52ca46475cf930b4cc08161b951b5ec2aae73dcd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f771eb401a46846c1aebd20552521b233dd7e18b",
-        "sha256": "1c2c5l1l4ybfgf9zpcr25ijy138x3jsxjlplki0icb1g7hyajd11",
+        "rev": "ec7c70d12ce2fc37cb92aff673dcdca89d187bae",
+        "sha256": "13iv8v45zbnqi7ik23awa6s1hla6sxb92xka205cmam888ds65zp",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/f771eb401a46846c1aebd20552521b233dd7e18b.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/ec7c70d12ce2fc37cb92aff673dcdca89d187bae.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zshCalcPlugin": {
