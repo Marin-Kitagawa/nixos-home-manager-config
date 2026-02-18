@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   sources = import ./nix/sources.nix;
 in {
   xdg.configFile = {

@@ -33,34 +33,30 @@
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-
   };
 
-  outputs =
-    {
-      self,
-      home-manager,
-      nixpkgs,
-      nixvim,
-      plasma-manager,
-      #zen-browser,
-    }@inputs:
-    let
-      username = "irelia";
-      system = "x86_64-linux";
-    in
-    {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [
-          plasma-manager.homeModules.plasma-manager
-          #nixvim.homeModules.nixvim
-          #zen-browser.homeModules.twilight-official
-          ./home.nix
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+  outputs = {
+    self,
+    home-manager,
+    nixpkgs,
+    nixvim,
+    plasma-manager,
+    #zen-browser,
+  } @ inputs: let
+    username = "irelia";
+    system = "x86_64-linux";
+  in {
+    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {inherit system;};
+      modules = [
+        plasma-manager.homeModules.plasma-manager
+        #nixvim.homeModules.nixvim
+        #zen-browser.homeModules.twilight-official
+        ./home.nix
+      ];
+      extraSpecialArgs = {
+        inherit inputs;
       };
     };
+  };
 }

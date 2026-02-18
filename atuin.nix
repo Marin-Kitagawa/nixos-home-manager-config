@@ -1,9 +1,8 @@
-{ ... }:
-{
+{...}: {
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
-    flags = [ ];
+    flags = [];
     settings = {
       auto_sync = true;
       sync_frequency = "5m";
@@ -44,6 +43,6 @@
       };
       prefers_reduced_motion = false;
     };
-    themes = { };
+    themes = {};
   };
 }

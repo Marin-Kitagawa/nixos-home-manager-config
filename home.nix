@@ -3,20 +3,19 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     #./atuin.nix
     ./direnv.nix
     ./git.nix
-    ./kitty.nix
+    # ./kitty.nix
     ./neovim.nix
     ./ghostty.nix
     #./nixvim.nix
     ./vscode.nix
     #./zen-browser.nix
-    ./zsh.nix
+    ./zoxide.nix
+    ./zsh/zsh.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

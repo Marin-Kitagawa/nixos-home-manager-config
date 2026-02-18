@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -31,18 +30,58 @@
     # -- Keymaps --
     keymaps = [
       # Buffer Navigation
-      { mode = "n"; key = "L"; action = "<cmd>bnext<cr>"; options.desc = "Next buffer"; }
-      { mode = "n"; key = "H"; action = "<cmd>bprev<cr>"; options.desc = "Previous buffer"; }
-      { mode = "n"; key = "<Leader>b"; action = ""; options.desc = "Buffers"; }
-      { mode = "n"; key = "<Leader>bD"; action = "<cmd>bd<cr>"; options.desc = "Close buffer"; }
+      {
+        mode = "n";
+        key = "L";
+        action = "<cmd>bnext<cr>";
+        options.desc = "Next buffer";
+      }
+      {
+        mode = "n";
+        key = "H";
+        action = "<cmd>bprev<cr>";
+        options.desc = "Previous buffer";
+      }
+      {
+        mode = "n";
+        key = "<Leader>b";
+        action = "";
+        options.desc = "Buffers";
+      }
+      {
+        mode = "n";
+        key = "<Leader>bD";
+        action = "<cmd>bd<cr>";
+        options.desc = "Close buffer";
+      }
 
       # Yazi
-      { mode = ["n" "v"]; key = "<leader>-"; action = "<cmd>Yazi<cr>"; options.desc = "Open yazi at current file"; }
-      { mode = "n"; key = "<leader>cw"; action = "<cmd>Yazi cwd<cr>"; options.desc = "Open yazi in working directory"; }
-      { mode = "n"; key = "<c-up>"; action = "<cmd>Yazi toggle<cr>"; options.desc = "Resume last yazi session"; }
+      {
+        mode = ["n" "v"];
+        key = "<leader>-";
+        action = "<cmd>Yazi<cr>";
+        options.desc = "Open yazi at current file";
+      }
+      {
+        mode = "n";
+        key = "<leader>cw";
+        action = "<cmd>Yazi cwd<cr>";
+        options.desc = "Open yazi in working directory";
+      }
+      {
+        mode = "n";
+        key = "<c-up>";
+        action = "<cmd>Yazi toggle<cr>";
+        options.desc = "Resume last yazi session";
+      }
 
       # Diagnostics
-      { mode = "n"; key = "gl"; action = "<cmd>lua vim.diagnostic.open_float()<cr>"; options.desc = "Hover diagnostics"; }
+      {
+        mode = "n";
+        key = "gl";
+        action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+        options.desc = "Hover diagnostics";
+      }
 
       # Blink Chartoggle (Moved from plugin opts to here!)
       {
@@ -64,7 +103,7 @@
       treesitter = {
         enable = true;
         settings = {
-          ensure_installed = [ "lua" "vim" "nix" "markdown" "markdown_inline" "python" "go" "rust" ];
+          ensure_installed = ["lua" "vim" "nix" "markdown" "markdown_inline" "python" "go" "rust"];
           highlight.enable = true;
         };
       };
@@ -94,12 +133,12 @@
             lsp_fallback = true;
           };
           formatters_by_ft = {
-            lua = [ "stylua" ];
-            go = [ "goimports" "gofmt" ];
-            rust = [ "rustfmt" ];
-            python = [ "isort" "black" ];
-            "*" = [ "codespell" ];
-            "_" = [ "trim_whitespace" ];
+            lua = ["stylua"];
+            go = ["goimports" "gofmt"];
+            rust = ["rustfmt"];
+            python = ["isort" "black"];
+            "*" = ["codespell"];
+            "_" = ["trim_whitespace"];
           };
         };
       };
@@ -108,15 +147,15 @@
         enable = true;
         settings = {
           keymap = {
-             preset = "default";
-             # NOTE: Custom keymaps like <C-;> must be global keymaps (see above),
-             # NOT defined here in the completion menu settings.
+            preset = "default";
+            # NOTE: Custom keymaps like <C-;> must be global keymaps (see above),
+            # NOT defined here in the completion menu settings.
           };
           cmdline = {
             enabled = true;
-            sources = [ "cmdline" "path" ];
+            sources = ["cmdline" "path"];
           };
-          sources.default = [ "lsp" "path" "snippets" "buffer" ];
+          sources.default = ["lsp" "path" "snippets" "buffer"];
         };
       };
 
@@ -144,19 +183,22 @@
           dashboard = {
             enabled = true;
             preset.header = ''
-`7MMM.     ,MMF'      `7MM                                                    .g8"""bgd
-  MMMb    dPMM          MM                                                  .dP'     `M
-  M YM   ,M MM  ,p6"bo  MM  ,MP'.gP"Ya `7MMpMMMb.  `7MMpMMMb.   ,6"Yb.      dM'       ` `7Mb,od8 ,6"Yb.  ,p6"bo   .gP"Ya
-  M  Mb  M' MM 6M'  OO  MM ;Y  ,M'   Yb  MM    MM    MM    MM  8)   MM      MM            MM' "'8)   MM 6M'  OO  ,M'   Yb
-  M  YM.P'  MM 8M       MM;Mm  8M""""""  MM    MM    MM    MM   ,pm9MM      MM.    `7MMF' MM     ,pm9MM 8M       8M""""""
-  M  `YM'   MM YM.    , MM `Mb.YM.    ,  MM    MM    MM    MM  8M   MM      `Mb.     MM   MM    8M   MM YM.    , YM.    ,
-.JML. `'  .JMML.YMbmd'.JMML. YA.`Mbmmd'.JMML  JMML..JMML  JMML.`Moo9^Yo.      `"bmmmdPY .JMML.  `Moo9^Yo.YMbmd'   `Mbmmd'
+              `7MMM.     ,MMF'      `7MM                                                    .g8"""bgd
+                MMMb    dPMM          MM                                                  .dP'     `M
+                M YM   ,M MM  ,p6"bo  MM  ,MP'.gP"Ya `7MMpMMMb.  `7MMpMMMb.   ,6"Yb.      dM'       ` `7Mb,od8 ,6"Yb.  ,p6"bo   .gP"Ya
+                M  Mb  M' MM 6M'  OO  MM ;Y  ,M'   Yb  MM    MM    MM    MM  8)   MM      MM            MM' "'8)   MM 6M'  OO  ,M'   Yb
+                M  YM.P'  MM 8M       MM;Mm  8M""""""  MM    MM    MM    MM   ,pm9MM      MM.    `7MMF' MM     ,pm9MM 8M       8M""""""
+                M  `YM'   MM YM.    , MM `Mb.YM.    ,  MM    MM    MM    MM  8M   MM      `Mb.     MM   MM    8M   MM YM.    , YM.    ,
+              .JML. `'  .JMML.YMbmd'.JMML. YA.`Mbmmd'.JMML  JMML..JMML  JMML.`Moo9^Yo.      `"bmmmdPY .JMML.  `Moo9^Yo.YMbmd'   `Mbmmd'
             '';
           };
           explorer.enabled = true;
           indent.enabled = true;
           input.enabled = true;
-          notifier = { enabled = true; timeout = 3000; };
+          notifier = {
+            enabled = true;
+            timeout = 3000;
+          };
           picker.enabled = true;
           quickfile.enabled = true;
           scope.enabled = true;
