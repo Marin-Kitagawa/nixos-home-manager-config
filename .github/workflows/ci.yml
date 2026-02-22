@@ -1,0 +1,37 @@
+name: NixOS Configuration Check
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Check Flake Health
+        # Checks flake.lock for deprecated inputs and general health
+        uses: DeterminateSystems/flake-checker-action@v9
+      - name: Check Flake Syntax
+        # Uses --impure to allow access to the /etc/nixos file we just created
+        run: nix flake check --impure
+      - name: Run Statix (Linting)
+        run: nix run nixpkgs#statix -- check || true
+      - name: Run Deadnix (Dead Code Detection)
+        run: nix run github:astro/deadnix --
+      - name: Dry Build (Verify Configuration Evaluates)
+        # This builds the Home Manager generation without actually installing it.
+        # For example, if your output is homeConfigurations."alice", change it to:
+        # nix build .#homeConfigurations.\"alice\".activationPackage --dry-run
+        run: nix build .#homeConfigurations."irelia".activationPackage --dry-run --impure
+      # - name: Security Scan
+      #   run: nix run nixpkgs#vulnix -- --system
+      - name: Check Formatting (Alejandra)
+        # Fails if code is not formatted. Run `nix run nixpkgs#alejandra -- .` locally to fix.
+        run: git ls-files '*.nix' | xargs -r nix run nixpkgs#alejandra -- --check .
