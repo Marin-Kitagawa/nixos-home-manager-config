@@ -29,7 +29,7 @@ jobs:
         # This builds the Home Manager generation without actually installing it.
         # For example, if your output is homeConfigurations."alice", change it to:
         # nix build .#homeConfigurations.\"alice\".activationPackage --dry-run
-        run: nix build .#homeConfigurations."irelia".activationPackage --dry-run --impure
+        run: export NIXPKGS_ALLOW_UNFREE=1; nix build .#homeConfigurations."irelia".activationPackage --dry-run --impure
       # - name: Security Scan
       #   run: nix run nixpkgs#vulnix -- --system
       - name: Check Formatting (Alejandra)
