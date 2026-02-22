@@ -10,9 +10,10 @@
     ./git.nix
     # ./kitty.nix
     ./neovim.nix
-    ./ghostty.nix
+    # ./ghostty.nix
     #./nixvim.nix
     ./vscode.nix
+    ./wezterm.nix
     #./zen-browser.nix
     ./zoxide.nix
     ./zsh/zsh.nix
