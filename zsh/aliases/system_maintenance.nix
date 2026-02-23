@@ -5,7 +5,7 @@
     pdw = "pwd";
     psa = "ps auxf";
     psgrep = "ps aux | grep -v grep | grep -i -e VSZ -e";
-    rmrf = "rm -rf";
+    rmrf = "rm -rfv";
     sr = "sudo reboot";
     ssn = "sudo shutdown now";
     sysfailed = "systemctl list-units --failed";
